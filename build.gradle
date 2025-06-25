@@ -18,5 +18,5 @@ java {
 }
 
 application {
-    mainClass = 'Main'
+    mainClass = 'main'
 }
