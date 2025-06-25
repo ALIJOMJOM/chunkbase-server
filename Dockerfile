@@ -14,5 +14,4 @@ RUN gradle build --no-daemon -x test
 EXPOSE 4567
 
 # Run the application
-CMD ["java", "-cp", "build/classes/java/main", "Main"]
-
+CMD ["gradle", "run", "--no-daemon"]
