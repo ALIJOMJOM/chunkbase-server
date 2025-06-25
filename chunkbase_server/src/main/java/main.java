@@ -1,7 +1,7 @@
 import static spark.Spark.*;
 import com.google.gson.Gson;
 
-public class Main {
+public class main {
     public static void main(String[] args) {
 
         port(8080); // default port for free hosts
