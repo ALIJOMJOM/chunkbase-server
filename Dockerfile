@@ -13,5 +13,5 @@ RUN gradle build --no-daemon -x test
 # Expose port
 EXPOSE 4567
 
-# Run the application
+# Run the application - make sure class name matches your file
 CMD ["gradle", "run", "--no-daemon"]
