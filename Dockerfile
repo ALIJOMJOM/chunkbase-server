@@ -1,11 +1,18 @@
-FROM gradle:7.6-jdk17-alpine
+# Use Gradle with Java 17
+FROM gradle:8.5-jdk17
 
+# Set working directory
 WORKDIR /app
 
-COPY build.gradle settings.gradle ./
-RUN gradle dependencies --no-daemon
+# Copy all files
+COPY . .
 
-COPY src ./src
+# Build the application
 RUN gradle build --no-daemon -x test
 
-CMD ["gradle", "run", "--no-daemon"]
+# Expose port
+EXPOSE 4567
+
+# Run the application
+CMD ["java", "-cp", "build/classes/java/main", "Main"]
+
