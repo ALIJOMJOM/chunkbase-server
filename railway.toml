@@ -1,5 +1,6 @@
 [build]
 builder = "dockerfile"
+dockerfilePath = "chunkbase_server/Dockerfile"
 
 [deploy]
-startCommand = "gradle run --no-daemon"
+startCommand = "cd chunkbase_server && gradle run --no-daemon"
