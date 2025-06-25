@@ -1,7 +1,11 @@
-FROM maven:3.8.6-openjdk-17-slim
+FROM gradle:7.6-jdk17-alpine
+
 WORKDIR /app
-COPY pom.xml ./
-RUN mvn dependency:go-offline -B
+
+COPY build.gradle settings.gradle ./
+RUN gradle dependencies --no-daemon
+
 COPY src ./src
-RUN mvn clean package -DskipTests -B
-EXPOSE 4567
+RUN gradle build --no-daemon -x test
+
+CMD ["gradle", "run", "--no-daemon"]
